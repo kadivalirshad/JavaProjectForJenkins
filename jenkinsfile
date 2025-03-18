@@ -1,0 +1,41 @@
+pipeline{
+    agent{
+        label "any"
+    }
+    stages{
+        stage("compile"){
+            steps{
+                echo "========executing A========"
+                sh "javac Main.java"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+        stage{
+            steps{
+                echo "Start Running Program..."
+                sh "java Main"
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
