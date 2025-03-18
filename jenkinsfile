@@ -19,8 +19,8 @@ pipeline{
                     echo "========A execution failed========"
                 }
             }
-        }
-        stage{
+        },
+        stage("run"){
             steps{
                 echo "Start Running Program..."
                 sh "java Main"
