@@ -19,7 +19,7 @@ pipeline{
                     echo "========A execution failed========"
                 }
             }
-        },
+        }
         stage("run"){
             steps{
                 echo "Start Running Program..."
